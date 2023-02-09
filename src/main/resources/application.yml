@@ -1,0 +1,22 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    defer-datasource-initialization: true #hibernate? ?? ?? ? data.sql? ??
+    hibernate:
+      ddl-auto: update #auto create - tables column generate-ddl을 무시하는 더 세밀한 옵션 임베디드 db는 기본 옵션이 create_drop
+    show-sql: true #show sql
+    properties:
+      hibernate:
+        format_sql: true #log? ???? ????
+    generate-ddl: true # 구현체와 상관없이 자동화된 ddl을 사용하게 하는 옵션
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_manager
+    username : root
+    password:
+    initialization-mode: always #이 경우 schema.sql이 존재할 경우 ddl-auto이 무시된다.
